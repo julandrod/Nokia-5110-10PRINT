@@ -1,14 +1,9 @@
-/*
-Este programa crea una 
-*/
-
-// Librerias necesarias 
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
 #include <Wire.h>
 #include <SPI.h>
 
-// Pines del LCD Nokia 5110
+// LCD pins
 #define RST 12
 #define CE  13
 #define DC  11
@@ -24,27 +19,26 @@ void setup(){
 	display.clearDisplay();
 	display.display();
 
-	// Defino tamaño del texto y color
+	// Setup size and text color
 	display.setTextSize(1);
 	display.setTextColor(BLACK);
 	display.clearDisplay();	
 
-	// Esta funcion evita que la secuencia random sea siempre la misma
+	// This function avoid the same random sequence
 	randomSeed(analogRead(0));
 
 }
 
 float randNumber;
-int width = 83; 	// Ancho del lcd-1
-int height = 47;	// Altura del lcd-1
-int x = 0, y = 0, offset = 4;
+int width = 83; 	// Width of the LCD - 1
+int height = 47;	// Height of the LCD -1
+int x = 0, y = 0, offset = 4; 
 
 void loop(){	
 	while(y <= height){
-		// Genero un numero aleatorio entre 0.00 y 1
+		// Random number between 0.00 and 1
 		randNumber = random(101) / 100.0 ;
 
-		// Establezco la probabilidad de aparicion de cada linea
 		if(randNumber < 0.5)
 			display.drawLine(x, y, x+offset, y+offset, 1);		
 		else 
