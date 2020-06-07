@@ -30,8 +30,8 @@ void setup(){
 }
 
 float randNumber;
-int width = 83; 	// Width of the LCD - 1
-int height = 47;	// Height of the LCD -1
+int width = display.width(); 	
+int height = display.height();	
 int x = 0, y = 0, offset = 4; 
 
 void loop(){	
