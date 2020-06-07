@@ -18,15 +18,9 @@ void setup(){
 	display.setContrast(40);
 	display.clearDisplay();
 	display.display();
-
-	// Setup size and text color
-	display.setTextSize(1);
-	display.setTextColor(BLACK);
-	display.clearDisplay();	
-
+	
 	// This function avoid the same random sequence
 	randomSeed(analogRead(0));
-
 }
 
 float randNumber;
